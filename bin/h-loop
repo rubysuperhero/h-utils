@@ -9,11 +9,18 @@ module H
     def test(args=ARGV.clone, inp=$stdin, out=$stdout)
       cmd = args.join(' ')
       inp.readlines.map(&:chomp).each do |line|
+        puts
+
         if cmd[/__/]
+          printf "before => '%s'\n", cmd
+          printf "after => '%s'\n", cmd.gsub(/__/, line)
           puts `#{cmd.gsub(/__/, line)}`
         else
+          printf "cmd => '%s'\n", "#{cmd} #{line}"
           puts `#{cmd} #{line}`
         end
+
+        puts
       end
     end
   end
