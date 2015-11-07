@@ -1,5 +1,5 @@
 project: h-utils
-bins:
+bin:
   - bin/h-group-files
   - bin/h-loop
   - bin/h-loop2
